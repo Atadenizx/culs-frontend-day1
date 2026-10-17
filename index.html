@@ -12,10 +12,10 @@
   <header class="site-header">
     <img class="logo" src="images/logo.svg" alt="" width="48" height="48">
     <p class="site-name">The Little Herb Garden</p>
-    <nav>
+    <nav aria-label="Main navigation">
       <ul>
         <li><a href="#herbs">Herbs</a></li>
-        <li><a href="#visiting">Visit</a></li>
+        <li><a href="#visit">Visit</a></li>
         <li><a href="#about">About</a></li>
       </ul>
     </nav>
@@ -34,8 +34,21 @@
 
     <section id="herbs">
       <h2>What grows here</h2>
-      <p class="count">Loading the herbs…</p>
-      <ul id="herbs-list" class="cards"></ul>
+      <div id="herb-directory">
+        <label for="herb-search">Search herbs</label>
+        <input id="herb-search" type="search" autocomplete="off">
+        <p id="directory-count" class="count" role="status" aria-live="polite">Loading the herbs…</p>
+        <p id="directory-status" class="message" role="status" aria-live="polite"></p>
+        <ul id="herbs-list" class="cards"></ul>
+      </div>
+      <article id="herb-detail" hidden>
+        <a class="back-link" href="#herbs">← All herbs</a>
+        <h3 id="herb-detail-name"></h3>
+        <p id="herb-detail-latin" class="latin"></p>
+        <p><strong>In the kitchen:</strong> <span id="herb-detail-use"></span></p>
+        <p><strong>Growing cycle:</strong> <span id="herb-detail-life"></span></p>
+      </article>
+      <p id="herb-message" class="message" role="status" aria-live="polite"></p>
     </section>
 
     <section id="visit">
