@@ -1,65 +1,37 @@
 # The Little Herb Garden
 
-A small website for day 1 of **Frontend Development**.
+A small, responsive herb garden website. The page reads each herb from its own JSON file and uses the URL hash to show that herb, for example `index.html#basil` or `index.html#thyme`.
 
-It is broken. Your job is to find out why, and to repair it.
+## Run locally
 
-## What you need
-
-- a GitHub account
-- Git
-- an editor
-- a browser (Firefox recommended)
-- [Node.js](https://nodejs.org/) (the LTS version), which brings `npx`
-
-## Get your copy
-
-1. **Fork** this repository to your GitHub account.
-2. **Clone your fork**, not this repository:
-
-   ```sh
-   git clone https://github.com/<your-name>/culs-frontend-day1.git
-   cd culs-frontend-day1
-   ```
-
-## Run it
-
-Start a small web server in the project folder:
+The site uses `fetch()` to load JSON, so open it through a web server instead of double-clicking `index.html`:
 
 ```sh
 npx serve
 ```
 
-The first time, `npx` asks whether to install `serve`. Answer `y`.
+Open the local address printed by the command. Search the herb list by name, Latin name, use, or growing cycle; select a herb to open its detail view.
 
-Then open the address it prints, usually <http://localhost:3000>.
-Stop the server with `Ctrl+C`.
+## Herb data format
 
-Do not open `index.html` by double-clicking it. A `file://` page is not the Web.
+Every file in `data/` uses the same JSON object shape:
 
-## Your mission
-
-Something is wrong. Several things, in fact.
-
-1. Inspect before you change anything: the page, the Console, the Network panel, the Inspector.
-2. Pick one problem and find out why it happens.
-3. Fix it, reload, verify.
-4. Commit that one fix, with a message that says what you fixed.
-5. Repeat.
-
-You are done when:
-
-- the Console shows no unexplained errors
-- the Network panel shows no missing files
-- every link on the page goes where it says
-- `git status` is clean, and `git push` has sent your commits to GitHub
-
-## The project
-
-```text
-index.html    the page
-style.css     how it looks
-app.js        what it does
-data/         the herbs, as JSON
-images/       the logo and a picture
+```json
+{
+  "name": "Basil",
+  "latin": "Ocimum basilicum",
+  "use": "Tomatoes, pesto and anything summery.",
+  "life": "annual"
+}
 ```
+
+- `name`: the common name shown on the page.
+- `latin`: the scientific name.
+- `use`: a short description of culinary or garden uses.
+- `life`: the growing cycle, either `annual` or `perennial`.
+
+The filename (without `.json`) is the URL hash and must be lowercase, such as `data/basil.json` for `#basil` or `data/mint.json` for `#mint`. Add new filenames to the herb list in `app.js` so they appear in the directory and search.
+
+## Publish with GitHub Pages
+
+In the repository settings, open **Pages**, choose **Deploy from a branch**, then select the `main` branch and the repository root (`/`). GitHub Pages serves this static site and its `data/` files directly. Push the branch to GitHub to publish changes.
