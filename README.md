@@ -35,3 +35,11 @@ The filename (without `.json`) is the URL hash and must be lowercase, such as `d
 ## Publish with GitHub Pages
 
 In the repository settings, open **Pages**, choose **Deploy from a branch**, then select the `main` branch and the repository root (`/`). GitHub Pages serves this static site and its `data/` files directly. Push the branch to GitHub to publish changes.
+
+## Team Members and Roles
+
+This project was developed by a team of 3. The team members and their main contributions to the project are listed below:
+
+* **BATUHAN ATA DENIZ (Student 1) - JavaScript & Interaction:** Handled the application's core logic, DOM manipulation, and event listeners (`app.js`).
+* **BATIKAN FALAY (Student 2) - Frontend Structure & Design:** Responsible for the project's user interface (`index.html`) and page styling (`style.css`).
+* **ATAKAN AYDOGAR (Student 3) - Data Management & Documentation:** Managed the structuring of plant data (JSON files in the `data/` folder), integration of visual assets, and project documentation (README).
